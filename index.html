@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Página web del Hotel Lopesan Costa Meloneras Resort & Spa">
+    <meta name="keywords" content="hotel, Lopesan, Costa Meloneras, Gran Canaria, turismo, vacaciones, spa, alojamiento">
+    <meta name="author" content="Grupo 3 - Marketing Digital">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0077aa">
+    <link rel="manifest" href="manifest.json">
+    <title>Hotel Lopesan Costa Meloneras</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f6f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            background-color: #e2e2e2;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 0;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        ul li a:hover {
+            color: #0077aa;
+        }
+
+        section {
+            padding: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #0077aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #005f88;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 24px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: gold;
+        }
+
+        #mensaje-reserva {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú -->
+    <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#reserva">Reservas</a></li>
+        <li><a href="#rating">Valoración</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+
+    <!-- Sección: Inicio -->
+    <section id="inicio">
+        <h1>Hotel Lopesan Costa Meloneras Resort & Spa</h1>
+        <p style="text-align:center;">
+            Bienvenidos al Hotel Lopesan Costa Meloneras, un resort de lujo ubicado en el corazón de Maspalomas, Gran Canaria.
+            Disfruta de una experiencia única junto al mar, combinando confort, bienestar y exclusividad.
+        </p>
+        <br>
+        <center>
+            <img src="hotel-lopesan.png" alt="Hotel Lopesan Costa Meloneras" width="70%" 
+                 style="border-radius:20px; box-shadow:0 0 15px rgba(0,0,0,0.2);">
+        </center>
+    </section>
+
+    <!-- Sección: Reserva -->
+    <section id="reserva">
+        <h2>Reserva tu estancia</h2>
+        <p style="text-align:center;">Selecciona las fechas y número de huéspedes para realizar tu reserva.</p>
+        <center>
+            <form id="form-reserva" onsubmit="mostrarMensaje(event)">
+                <label for="fecha-entrada">Fecha de llegada:</label><br>
+                <input type="date" id="fecha-entrada" required><br>
+
+                <label for="fecha-salida">Fecha de salida:</label><br>
+                <input type="date" id="fecha-salida" required><br>
+
+                <label for="huespedes">Número de huéspedes:</label><br>
+                <select id="huespedes">
+                    <option value="1">1 huésped</option>
+                    <option value="2">2 huéspedes</option>
+                    <option value="3">3 huéspedes</option>
+                    <option value="4">4 huéspedes</option>
+                    <option value="5+">5 o más</option>
+                </select><br>
+
+                <button type="submit">Reservar</button>
+            </form>
+
+            <div id="mensaje-reserva">
+                 Se ha reservado correctamente. ¡Gracias por elegirnos!
+            </div>
+        </center>
+    </section>
+
+    <!-- Sección: Valoración -->
+    <section id="rating">
+        <h2>Valora tu experiencia</h2>
+        <p style="text-align:center;">Selecciona una puntuación del 1 al 5 según tu experiencia en el hotel.</p>
+
+        <center>
+            <form id="form-rating">
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+                    <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+                    <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+                    <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+                    <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+                </div>
+                <button type="submit">Enviar valoración</button>
+            </form>
+        </center>
+    </section>
+
+    <!-- Sección: Ubicación -->
+    <section id="ubicacion">
+        <h2>Ubicación</h2>
+        <p style="text-align:center;">Mar Mediterráneo, 1, 35100, Meloneras (Islas Canarias)</p>
+
+        <h2>Créditos</h2>
+        <p style="text-align:center;">
+            Daniela Eridenia Martel Valido<br>
+            Manuel Muñoz Roca<br>
+            Pedro Rosas Rubio<br>
+            Braulio Bastos Mateos<br>
+            Alejandro Morales Monroy
+        </p>
+    </section>
+
+    <footer>
+        © 2025 Hotel Lopesan Costa Meloneras | Actividad 2 - FMCC
+    </footer>
+
+    <script>
+        // Mostrar mensaje de reserva
+        function mostrarMensaje(event) {
+            event.preventDefault();
+            document.getElementById('mensaje-reserva').style.display = 'block';
+        }
+
+        // Mostrar mensaje al enviar valoración
+        document.getElementById('form-rating').onsubmit = function(e){
+            e.preventDefault();
+            alert("¡Gracias por valorar tu experiencia!");
+        }
+
+        // Registro del Service Worker para habilitar la funcionalidad P
